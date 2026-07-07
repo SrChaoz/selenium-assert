@@ -15,11 +15,15 @@ public class SeleniumTest {
     private static final String BASE_URL = "https://the-internet.herokuapp.com";
 
     @BeforeAll
-    public static void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.manage().window().maximize();
-    }
+    public void setUp() {
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless=new"); // Forzar modo invisible
+    options.addArguments("--no-sandbox");    // Requerido en entornos de contenedores Linux
+    options.addArguments("--disable-dev-shm-usage"); // Evita problemas de memoria compartida en Linux
+    
+    // Pasa las opciones al constructor
+    this.driver = new ChromeDriver(options); 
+}
 
     // Método utilitario para cumplir con el requisito de capturas de pantalla
     public void tomarCaptura(String nombreEjercicio) {
