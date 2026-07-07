@@ -13,7 +13,7 @@ public class MainTest {
     @Test
     public void testEsPar() {
         Main app = new Main();
-        assertFalse(app.esPar(4), "El número 4 debería ser par");
+        assertTrue(app.esPar(4), "El número 4 debería ser par");
         assertFalse(app.esPar(7), "El número 7 no debería ser par");
     }
 }
