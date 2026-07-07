@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +16,7 @@ public class SeleniumTest {
     private static WebDriver driver;
     private static final String BASE_URL = "https://the-internet.herokuapp.com";
 
-    @BeforeAll
+    @BeforeEach
     public void setUp() {
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--headless=new"); // Forzar modo invisible
